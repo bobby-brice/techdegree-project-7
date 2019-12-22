@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
+import { Provider } from './components/context';
 import logo from './logo.svg';
 import './App.css';
+
+
+import Nav from './components/Nav';
+import SearchForm from './components/SearchForm';
+import Gallery from './components/Gallery';
+import NotFound from './components/NotFound';
+
 
 function App() {
   return (
