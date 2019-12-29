@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Provider } from './components/context';
+import { createBrowserHistory } from "history";
 import axios from 'axios';
 import apiKey from './config';
 import {
@@ -17,13 +19,15 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      photos: [],
+      photo: [],
       loading: true
     }
   }
 
   componentDidMount() {
-    this.performSearch();
+    const history = createBrowserHistory();
+    let url = history.location.pathname.replace(/[^\w\s]/gi, '').replace("search", '');
+    this.performSearch(url);
   }
 
   performSearch = (query) => {
@@ -41,10 +45,28 @@ class App extends Component {
 
   render() {
     return (
-      <h1>Hello World!</h1>
-    )
+      // we use the <Provider> to send the current state of the data and the function performSearch
+      <Provider value={{
+        data: this.state.photo,
+        loading: this.state.loading,
+        performSearch: this.performSearch
+      }}>
+        <BrowserRouter>{/*managing routes*/}
+          <div className="container">
+            <SearchForm />
+            <Nav />
+            <Switch>
+              <Route exact path="/" render={() => <Redirect to='/search/mountain' /> } />
+              <Route path="/search/:query" render={(props) => // if loading is true h3 is displayed, else the gallery is shown
+                (this.state.loading) ? <h3 className="loading">Loading....</h3> : <Gallery {...props} />
+              } />
+              <Route component={NotFound} /> {/*only appears when no route matches*/}
+            </Switch>
+          </div>
+        </BrowserRouter>
+    </Provider>
+    );
   }
-
 }
 
 
