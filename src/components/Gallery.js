@@ -25,7 +25,7 @@ render(){
           photos = <NotFound />;
         }
 
-        return(
+        return( //after the data is mapped, return to the container with either a loading message or the photos array obj
           <div className="photo-container">
             <h2>{ queryText }</h2>
                 <ul> 
