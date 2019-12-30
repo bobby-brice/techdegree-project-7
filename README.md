@@ -1,17 +1,19 @@
-Initializing the App:
+## Initializing the App
 
 Get a Flickr API key
+
 Create yahoo account/use tumblr account to sign in.
+
 Apply for a non-commercial API key.
+
 You’ll need to set up a config.js file that imports your API key into the application so that the application can request data from the Flickr API.
+
 The config.js file must be saved in the /src folder.
 The config.js file should looks like this:
 
 const apiKey = 'YOUR API KEY';
 
 export default apiKey;
-
-The code is made in a way that you can also perform a search by typing in the url for example. "/search/'YOUR TEXT'". not writing anything after "/search/..." or mistyping the url will result in a "page not found".
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
