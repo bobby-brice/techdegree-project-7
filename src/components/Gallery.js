@@ -10,7 +10,7 @@ render(){
     <Consumer>
       { context => {
         let photos;
-        let queryText = this.props.match.params.query; // we get the value of :query for the title
+        let queryText = this.props.match.params.query; // gets the value of :query for the title
         const result = context.data; //we save the data in the result variable
 
         if (result.length > 0) { // if the results found are greater than 0 the images are displayed
@@ -27,8 +27,8 @@ render(){
 
         return(
           <div className="photo-container">
-            <h2>{ queryText } Photos</h2>
-                <ul> {/*This condition is also here so that the text "loading .." appears when a Navlink is clicked or a search is performed*/}
+            <h2>{ queryText }</h2>
+                <ul> 
                   {(context.loading) ? <h3 className="loading">Loading....</h3> : photos }
                 </ul>
           </div>

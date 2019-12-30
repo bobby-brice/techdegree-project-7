@@ -17,13 +17,13 @@ const Nav = () => {
           <nav className="main-nav">
             <ul>
               <li>{/*the "to" sends the :query value to <gallery> to display the text in the title*/}
-              <NavLink to="/search/mountain" onClick={handleSearch}>Mountain</NavLink>
+              <NavLink to="/search/waterfalls" onClick={handleSearch}>Waterfalls</NavLink>
               </li>
               <li>
-              <NavLink to="/search/starry%20sky" onClick={handleSearch}>Starry Sky</NavLink>
+              <NavLink to="/search/puppies" onClick={handleSearch}>Puppies</NavLink>
               </li>
               <li>
-              <NavLink to="/search/rivers" onClick={handleSearch}>Rivers</NavLink>
+              <NavLink to="/search/sunsets" onClick={handleSearch}>Sunsets</NavLink>
               </li>
             </ul>
           </nav>

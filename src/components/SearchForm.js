@@ -15,8 +15,7 @@ render(){
           this.setState({ searchText: e.target.value });
         }
 
-        /* prevents the page from reloading with "preventdefault", obtains the value
-        of the input, creates a "path" with that value, pushes it to the url, and runs
+        /* obtains the value of the input, creates a "path" with that value, pushes it to the url, and runs
         performsearch and reset the input */
         this.handleSubmit = e => {
           e.preventDefault();
@@ -24,7 +23,7 @@ render(){
           let path = `/search/${queryValue}`;
           this.props.history.push(path);
 
-          context.loading = true; // is set to true so that the text "loanding" appears
+          context.loading = true; // is set to true so that the text "loading" appears
           context.performSearch(queryValue);
           e.currentTarget.reset();
         }

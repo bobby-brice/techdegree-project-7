@@ -2,6 +2,7 @@ body {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
   color: #3f4850;
+  background-color: aliceblue;
 }
 
 h2 {
@@ -56,6 +57,11 @@ input {
   border-radius: 3px;
   padding: 5px;
   color: #fff;
+  
+}
+
+.main-nav a:hover {
+  transform: scale(1.2);
 }
 
 .main-nav .active,
@@ -76,7 +82,8 @@ input {
   width: 220px;
   height: 165px;
   overflow: hidden;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  box-shadow: 5px 10px 5px lightslategray;
 }
 
 .photo-container ul img {

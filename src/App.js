@@ -13,7 +13,7 @@ import {
 import Nav from './components/Nav';
 import SearchForm from './components/SearchForm';
 import Gallery from './components/Gallery';
-import NotFound from './components/NotFound';
+import PageNotFound from './components/PageNotFound';
 
 class App extends Component {
   constructor() {
@@ -30,11 +30,12 @@ class App extends Component {
     this.performSearch(url);
   }
 
-  performSearch = (query) => {
+  performSearch = (query = "waterfalls") => {
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&content_type=1&per_page=24&format=json&nojsoncallback=1`)
       .then(resData => {
+        console.log(resData)
         this.setState({
-          photos: resData.data.photos.photo,
+          photo: resData.data.photos.photo,
           loading: false
         });
       })
@@ -51,16 +52,16 @@ class App extends Component {
         loading: this.state.loading,
         performSearch: this.performSearch
       }}>
-        <BrowserRouter>{/*managing routes*/}
+        <BrowserRouter>
           <div className="container">
             <SearchForm />
             <Nav />
             <Switch>
-              <Route exact path="/" render={() => <Redirect to='/search/mountain' /> } />
+              <Route exact path="/" render={() => <Redirect to='/search/waterfalls' /> } />
               <Route path="/search/:query" render={(props) => // if loading is true h3 is displayed, else the gallery is shown
                 (this.state.loading) ? <h3 className="loading">Loading....</h3> : <Gallery {...props} />
               } />
-              <Route component={NotFound} /> {/*only appears when no route matches*/}
+              <Route component={PageNotFound} /> {/*only appears when no route matches*/}
             </Switch>
           </div>
         </BrowserRouter>
