@@ -1,6 +1,7 @@
 
 import React from 'react';
 
+//element to be displayed if there search results are === 0
 const NotFound = () => {
   return(
     <li className="not-found">
