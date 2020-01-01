@@ -52,7 +52,7 @@ class App extends Component {
         loading: this.state.loading,
         performSearch: this.performSearch
       }}>
-        <HashRouter>
+        <HashRouter basename="/search/waterfalls">
           <div className="container">
             <SearchForm />
             <Nav />
