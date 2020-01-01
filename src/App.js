@@ -4,7 +4,7 @@ import { createBrowserHistory } from "history";
 import axios from 'axios';
 import apiKey from './config';
 import {
-  BrowserRouter,
+  HashRouter,
   Route,
   Redirect,
   Switch
@@ -52,7 +52,7 @@ class App extends Component {
         loading: this.state.loading,
         performSearch: this.performSearch
       }}>
-        <BrowserRouter basename = "/search/waterfalls">
+        <HashRouter>
           <div className="container">
             <SearchForm />
             <Nav />
@@ -64,7 +64,7 @@ class App extends Component {
               <Route component={PageNotFound} /> {/*only appears when no route matches*/}
             </Switch>
           </div>
-        </BrowserRouter>
+        </HashRouter>
     </Provider>
     );
   }
