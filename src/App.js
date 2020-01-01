@@ -52,7 +52,7 @@ class App extends Component {
         loading: this.state.loading,
         performSearch: this.performSearch
       }}>
-        <BrowserRouter>
+        <BrowserRouter basename = "/search/waterfalls">
           <div className="container">
             <SearchForm />
             <Nav />
